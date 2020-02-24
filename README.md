@@ -72,4 +72,4 @@ Via [CDN](https://code.jquery.com/)  is the quickest and easiest way to get JQue
 
 ### LICENSE
 
-Privatium is [GPL licensed.](https://github.com/xbaysal11/phish-js/blob/master/LICENSE)
+Phish JS is [MIT licensed.](https://github.com/xbaysal11/phish-js/blob/master/LICENSE)
