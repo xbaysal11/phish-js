@@ -8,11 +8,9 @@
      Universal phishing script + Telegram bot notification
 </p>
 
-[![https://t.me/xruin](https://img.shields.io/badge/sponsors-0-brightgreen)](https://t.me/xruin)
 [![Privatium](https://img.shields.io/github/license/xbaysal11/privatium)](https://github.com/xbaysal11/phish-js)
 [![Github](https://img.shields.io/github/followers/xbaysal11?style=social)](https://github.com/xbaysal11)
 [![Privatium](https://img.shields.io/github/stars/xbaysal11/phish-js?style=social)](https://github.com/xbaysal11/phish-js)
-[![https://t.me/xruin](https://img.shields.io/badge/%F0%9F%92%AC%20Telegram-xruin-blue.svg)](https://t.me/xruin)
 
 ---
 
