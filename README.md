@@ -60,11 +60,6 @@ Via [CDN](https://code.jquery.com/)  is the quickest and easiest way to get JQue
     });
 </script>
 ```
----
-
-### SPONSORS [[Become a sponsor](https://t.me/xruin)]
-
-[![https://t.me/xruin](https://img.shields.io/badge/sponsors-0-brightgreen)](https://t.me/xruin)
 
 ---
 
